@@ -1,4 +1,4 @@
-package go
+package main
 
 func isAnagram(s string, t string) bool {
 	var m = map[byte]int{}
