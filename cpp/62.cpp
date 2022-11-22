@@ -1,15 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
 class Solution {
 public:
-    int fac(int n) {
-        if (n == 0)
-            return 1;
-        int res = 1;
-        for (int i = 2 ; i <= n ; i++)
-            res *= i;
-            return res;
-    }
+  int uniquePaths(int m, int n) {
+    double ret = 1;
 
-    int uniquePaths(int m, int n) {
-        return fac(m+n-2) / (fac(n-1)*fac(m-1));
-    }
+    --m, --n;
+    int all = m + n;
+    for (int i = 1; i <= n; i++)
+      ret *= i, ret /= i;
+    for (int i = 1; i <= m; i++)
+      ret *= (n + i), ret /= i;
+
+    return static_cast<int>(ret);
+  }
 };
